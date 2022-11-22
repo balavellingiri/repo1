@@ -1,0 +1,29 @@
+name: dev-pipeline
+
+on:
+  workflow_call:
+    inputs:
+      var1:
+        required: true
+        type: string
+      var2:
+        required: true
+        type: string
+
+env:
+  VAR1: ${{ inputs.var1 }}
+  VAR2: ${{ inputs.var2 }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1
+        run: echo $VAR1
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: step 1
+        run: echo $VAR2

@@ -1,4 +1,4 @@
-name: java-pipeline
+name: qa-pipeline
 
 on:
   workflow_call:
